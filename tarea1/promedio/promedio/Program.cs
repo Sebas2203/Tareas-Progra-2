@@ -34,6 +34,8 @@ namespace promedio
                 {
                     Console.WriteLine("\n---Promedios Estudiantes---\n");
 
+                    //datos
+
                     Console.Write("Cédula");
                     int cedula = int.Parse(Console.ReadLine());
                     Console.Write("Nombre");
@@ -60,6 +62,26 @@ namespace promedio
                     Console.Write("Examen 3");
                     float examen3 = float.Parse(Console.ReadLine());
 
+                    //calcular porcentajes 
+                    float quices = ((quiz1 + quiz2 + quiz3) / 30) * 25;
+                    float tareas = ((tarea1 + tarea2 + tarea3) / 30) * 30;
+                    float examenes = ((examen1 + examen2 + examen3) / 30) * 45;
+
+                    //calcular nota final 
+                    float promedioFinal = quices + tareas + examenes;
+
+                    if (promedioFinal  >= 70)
+                    {
+                        Console.WriteLine("Aprovado");
+                    }
+                    else if (promedioFinal <= 50)
+                    {
+                        Console.WriteLine("Aplazado");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Reprobado");
+                    }
                 }
                 catch 
                 {
