@@ -26,7 +26,7 @@ namespace promedio
         }
         static void promedio()
         {
-
+            Console.WriteLine("Ingrese su Cédula");
         }
     }
 }
