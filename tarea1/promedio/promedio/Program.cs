@@ -26,7 +26,8 @@ namespace promedio
         }
         static void promedio()
         {
-            Console.WriteLine("Ingrese su Cédula");
+            Console.WriteLine("\n---Promedios Estudiantes---\n");
+
         }
     }
 }

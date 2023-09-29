@@ -1,0 +1,7 @@
+E:\universidad\progra\tareas\tarea1\productos\productos\obj\Debug\productos.csproj.AssemblyReference.cache
+E:\universidad\progra\tareas\tarea1\productos\productos\obj\Debug\productos.csproj.CoreCompileInputs.cache
+E:\universidad\progra\tareas\tarea1\productos\productos\bin\Debug\productos.exe.config
+E:\universidad\progra\tareas\tarea1\productos\productos\bin\Debug\productos.exe
+E:\universidad\progra\tareas\tarea1\productos\productos\bin\Debug\productos.pdb
+E:\universidad\progra\tareas\tarea1\productos\productos\obj\Debug\productos.exe
+E:\universidad\progra\tareas\tarea1\productos\productos\obj\Debug\productos.pdb
