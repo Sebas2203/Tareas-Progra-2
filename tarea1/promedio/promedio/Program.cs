@@ -36,30 +36,30 @@ namespace promedio
 
                     //datos
 
-                    Console.Write("Cédula");
+                    Console.Write("Cédula: ");
                     int cedula = int.Parse(Console.ReadLine());
-                    Console.Write("Nombre");
+                    Console.Write("Nombre: ");
                     string nombre = Console.ReadLine();
 
-                    Console.Write("Quiz 1");
+                    Console.Write("Quiz 1: ");
                     float quiz1 = float.Parse(Console.ReadLine());
-                    Console.Write("Quiz 2");
+                    Console.Write("Quiz 2: ");
                     float quiz2 = float.Parse(Console.ReadLine());
-                    Console.Write("Quiz 3");
+                    Console.Write("Quiz 3: ");
                     float quiz3 = float.Parse(Console.ReadLine());
 
-                    Console.Write("Tarea 1");
+                    Console.Write("Tarea 1: ");
                     float tarea1 = float.Parse(Console.ReadLine());
-                    Console.Write("Tarea 2");
+                    Console.Write("Tarea 2: ");
                     float tarea2 = float.Parse(Console.ReadLine());
-                    Console.Write("Tarea 3");
+                    Console.Write("Tarea 3: ");
                     float tarea3 = float.Parse(Console.ReadLine());
 
-                    Console.Write("Examen 1");
+                    Console.Write("Examen 1: ");
                     float examen1 = float.Parse(Console.ReadLine());
-                    Console.Write("Examen 2");
+                    Console.Write("Examen 2: ");
                     float examen2 = float.Parse(Console.ReadLine());
-                    Console.Write("Examen 3");
+                    Console.Write("Examen 3: ");
                     float examen3 = float.Parse(Console.ReadLine());
 
                     //calcular porcentajes 
@@ -82,6 +82,11 @@ namespace promedio
                     {
                         Console.WriteLine("Reprobado");
                     }
+
+                    //mostrar resultados 
+                    Console.WriteLine($"Estudiante: {nombre}");
+                    Console.WriteLine($"Cedula: {cedula}");
+                    Console.WriteLine($"Condición del Curso: {promedioFinal}");
                 }
                 catch 
                 {
