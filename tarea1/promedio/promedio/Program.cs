@@ -26,7 +26,47 @@ namespace promedio
         }
         static void promedio()
         {
-            Console.WriteLine("\n---Promedios Estudiantes---\n");
+            bool enter = true;
+
+            while (enter)
+            {
+                try
+                {
+                    Console.WriteLine("\n---Promedios Estudiantes---\n");
+
+                    Console.Write("Cédula");
+                    int cedula = int.Parse(Console.ReadLine());
+                    Console.Write("Nombre");
+                    string nombre = Console.ReadLine();
+
+                    Console.Write("Quiz 1");
+                    float quiz1 = float.Parse(Console.ReadLine());
+                    Console.Write("Quiz 2");
+                    float quiz2 = float.Parse(Console.ReadLine());
+                    Console.Write("Quiz 3");
+                    float quiz3 = float.Parse(Console.ReadLine());
+
+                    Console.Write("Tarea 1");
+                    float tarea1 = float.Parse(Console.ReadLine());
+                    Console.Write("Tarea 2");
+                    float tarea2 = float.Parse(Console.ReadLine());
+                    Console.Write("Tarea 3");
+                    float tarea3 = float.Parse(Console.ReadLine());
+
+                    Console.Write("Examen 1");
+                    float examen1 = float.Parse(Console.ReadLine());
+                    Console.Write("Examen 2");
+                    float examen2 = float.Parse(Console.ReadLine());
+                    Console.Write("Examen 3");
+                    float examen3 = float.Parse(Console.ReadLine());
+
+                }
+                catch 
+                {
+                    Console.WriteLine("Error, Intenta de nuevo ");
+                }
+            }
+            
 
         }
     }
