@@ -68,7 +68,10 @@ namespace promedio
                     float examenes = ((examen1 + examen2 + examen3) / 30) * 45;
 
                     //calcular nota final 
-                    float promedioFinal = quices + tareas + examenes;
+                    float promedioFinal = (quices + tareas + examenes)/3;
+
+                    Console.WriteLine($"Estudiante: {nombre}");
+                    Console.WriteLine($"Cedula: {cedula}");
 
                     if (promedioFinal  >= 70)
                     {
@@ -84,9 +87,8 @@ namespace promedio
                     }
 
                     //mostrar resultados 
-                    Console.WriteLine($"Estudiante: {nombre}");
-                    Console.WriteLine($"Cedula: {cedula}");
-                    Console.WriteLine($"Condición del Curso: {promedioFinal}");
+
+                    enter = false;
                 }
                 catch 
                 {

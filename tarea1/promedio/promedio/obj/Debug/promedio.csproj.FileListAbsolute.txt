@@ -1,0 +1,7 @@
+E:\universidad\progra\tareas\tarea1\promedio\promedio\bin\Debug\promedio.exe.config
+E:\universidad\progra\tareas\tarea1\promedio\promedio\bin\Debug\promedio.exe
+E:\universidad\progra\tareas\tarea1\promedio\promedio\bin\Debug\promedio.pdb
+E:\universidad\progra\tareas\tarea1\promedio\promedio\obj\Debug\promedio.csproj.AssemblyReference.cache
+E:\universidad\progra\tareas\tarea1\promedio\promedio\obj\Debug\promedio.csproj.CoreCompileInputs.cache
+E:\universidad\progra\tareas\tarea1\promedio\promedio\obj\Debug\promedio.exe
+E:\universidad\progra\tareas\tarea1\promedio\promedio\obj\Debug\promedio.pdb
