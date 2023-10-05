@@ -16,13 +16,27 @@ namespace productos
     internal class Program
     {
         static int cantidadProductos = 0;
+        static bool ingresar = true;
         static void Main(string[] args)
         {
-            while (true)
+            while (ingresar)
             {
                 articulos();
                 Console.ReadLine();
-                
+
+                //ingresar de nuevo o salir del programa 
+                Console.WriteLine("1. Ingresar\n2. Salir");
+                int opcion = int.Parse(Console.ReadLine());
+
+                if (opcion == 1)
+                {
+                    Console.WriteLine("");
+                }
+                else if (opcion == 2)
+                {
+                    ingresar = false;
+                    Console.WriteLine("Hasta la próxima");
+                }
             }
         }
 
