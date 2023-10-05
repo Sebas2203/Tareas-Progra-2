@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+
 /*
 Desarrolle un algoritmo que calcule el promedio final para un estudiante del curso de Programación 
 1. Deberá leer los siguientes datos para cada estudiante: carnet, nombre, quiz 1, quiz 2, quiz 3, tarea 1, tarea 2, tarea 3, 
@@ -19,83 +22,147 @@ namespace promedio
 {
     internal class Program
     {
+        //variables 
+        static float[] tarea = new float[3];
+        static float[] quiz = new float[3];
+        static float[] examen = new float[3];
+        static float[] nota = new float[3];
+        static float promedio = 0;
+        static string carnet = "";
+        static string estudiante = "";
+        static bool ingresar = true;
+
         static void Main(string[] args)
         {
-            promedio();
+            menu();
             Console.ReadLine();
         }
-        static void promedio()
-        {
-            bool enter = true;
 
-            while (enter)
+        //menu
+        static void menu()
+        {
+
+            while (ingresar)
             {
                 try
                 {
-                    Console.WriteLine("\n---Promedios Estudiantes---\n");
+                    Console.WriteLine("\n---Promedio---\n");
 
-                    //datos
+                    //datos del estudiante
+                    Console.Write("Carnet: ");
+                    carnet = Console.ReadLine().ToUpper();
+                    Console.Write("Estudiante: ");
+                    estudiante = Console.ReadLine();
 
-                    Console.Write("Cédula: ");
-                    int cedula = int.Parse(Console.ReadLine());
-                    Console.Write("Nombre: ");
-                    string nombre = Console.ReadLine();
+                    //ingreso de las notas
+                    notasTareas();
+                    notasQuices();
+                    notasExamenes();
 
-                    Console.Write("Quiz 1: ");
-                    float quiz1 = float.Parse(Console.ReadLine());
-                    Console.Write("Quiz 2: ");
-                    float quiz2 = float.Parse(Console.ReadLine());
-                    Console.Write("Quiz 3: ");
-                    float quiz3 = float.Parse(Console.ReadLine());
+                    //funciones para calcular el porcentaje
+                    porcentajeTarea();
+                    porcentajeQuiz();
+                    porcentajeExamen();
 
-                    Console.Write("Tarea 1: ");
-                    float tarea1 = float.Parse(Console.ReadLine());
-                    Console.Write("Tarea 2: ");
-                    float tarea2 = float.Parse(Console.ReadLine());
-                    Console.Write("Tarea 3: ");
-                    float tarea3 = float.Parse(Console.ReadLine());
-
-                    Console.Write("Examen 1: ");
-                    float examen1 = float.Parse(Console.ReadLine());
-                    Console.Write("Examen 2: ");
-                    float examen2 = float.Parse(Console.ReadLine());
-                    Console.Write("Examen 3: ");
-                    float examen3 = float.Parse(Console.ReadLine());
-
-                    //calcular porcentajes 
-                    float quices = ((quiz1 + quiz2 + quiz3) / 30) * 25;
-                    float tareas = ((tarea1 + tarea2 + tarea3) / 30) * 30;
-                    float examenes = ((examen1 + examen2 + examen3) / 30) * 45;
-
-                    //calcular nota final 
-                    float promedioFinal = (quices + tareas + examenes)/3;
-
-                    Console.WriteLine($"Estudiante: {nombre}");
-                    Console.WriteLine($"Cedula: {cedula}");
-
-                    if (promedioFinal  >= 70)
-                    {
-                        Console.WriteLine("Aprovado");
-                    }
-                    else if (promedioFinal <= 50)
-                    {
-                        Console.WriteLine("Aplazado");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Reprobado");
-                    }
-
-                    //mostrar resultados 
-
-                    enter = false;
+                    //promedio del estudiante
+                    promedioFinal();
                 }
-                catch 
+                catch
                 {
-                    Console.WriteLine("Error, Intenta de nuevo ");
+                    Console.WriteLine("Error");
                 }
             }
+        }
+
+        //resultado de promedio final 
+        static void promedioFinal()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\nEl estudiante -{estudiante}- con el carnet -{carnet}- tiene un promedio de {nota}\n");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            //ingresar de nuevo o salir del programa 
+            Console.WriteLine("1. Ingresar\n2. Salir");
+            int opcion = int.Parse( Console.ReadLine());
+
+            if ( opcion == 1 ) 
+            {
+                Console.WriteLine("");
+            }
+            else if ( opcion == 2 )
+            {
+                ingresar = false;
+                Console.WriteLine("Hasta la próxima");
+            }
+        }
+
+        //funciones para ingresar notas
+        static void notasTareas()
+        {
+            Console.Write("\n---Ingrese la nota de las Tareas---\n");
             
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Tarea {i + 1}:");
+                tarea[i] = int.Parse(Console.ReadLine());
+
+            }
+        }
+
+        static void notasQuices()
+        {
+            Console.Write("\n---Ingrese la nota de los quices---\n");
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Quiz {i + 1}:");
+                quiz[i] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        static void notasExamenes()
+        {
+            Console.Write("\n---Ingrese la nota de los Examenes---\n");
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Examen {i + 1}:");
+                examen[i] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        //funciones para sacar los porcentajes 
+        static void porcentajeTarea()
+        {
+            promedio = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                promedio += tarea[i];
+            }
+            promedio /=3;
+            nota[0] = promedio *= 0.30f;
+        }
+
+        static void porcentajeQuiz()
+        {
+            promedio = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                promedio += quiz[i];
+            }
+            promedio /= 3;
+            nota[0] = promedio *= 0.25f;
+        }
+
+        static void porcentajeExamen()
+        {
+            promedio = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                promedio += examen[i];
+            }
+            promedio /= 3;
+            nota[0] = promedio *= 0.45f;
 
         }
     }

@@ -19,6 +19,10 @@ namespace tienda
 {
     internal class Program
     {
+        //global variables
+        static bool sharon = true;
+        static int camisas = 0;
+        static float total = 0f;
         static void Main(string[] args)
         {
             tienda();
@@ -26,10 +30,6 @@ namespace tienda
         }
         static void tienda()
         {
-            //varialbles
-            bool sharon = true;
-            int camisas = 0;
-            float total = 0f;
 
             while (sharon)
             {
@@ -48,6 +48,7 @@ namespace tienda
                         switch (opcion)
                         {
                             case 1:
+                                Console.Clear();
                                 Console.WriteLine("¿Cuántas camisas ingresa?");
                                 int cantidad = int.Parse(Console.ReadLine());
                                 camisas = cantidad;
@@ -83,7 +84,7 @@ namespace tienda
                                     {
                                         Console.Write($"Precio Camisa {i + 1}: ");
                                         float precio = float.Parse(Console.ReadLine());
-                                        total += precio;
+                                        total += precio;    
                                         Console.WriteLine($"Total: {total}\n");
                                     }
 
@@ -96,6 +97,7 @@ namespace tienda
                                 break;
 
                             case 2:
+                                Console.Clear();
                                 sharon = false;
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("\n¡Gracias por su compra!\n");
@@ -104,6 +106,7 @@ namespace tienda
                     }
                     else 
                     {
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\nIngrese una opcion correcta\n");
                         Console.ForegroundColor = ConsoleColor.White;
@@ -111,6 +114,7 @@ namespace tienda
                 }         
                 catch 
                 {
+                    Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nIngrese un valor correcto\n");
                     Console.ForegroundColor = ConsoleColor.White;

@@ -15,38 +15,46 @@ namespace productos
 {
     internal class Program
     {
+        static int cantidadProductos = 0;
         static void Main(string[] args)
         {
-            cantidadProductos();
-            Console.ReadLine();
-        }
-        static void cantidadProductos()
-        {
-            bool play = true;
-            while (play)
+            while (true)
             {
-                try
-                {
-                    Console.WriteLine("¿Cuántos productos compró?");
-                    int productos = int.Parse(Console.ReadLine());
-                    if (productos <= 10)
-                    {
-                        Console.WriteLine("El precio por producto es de $20");
-                        int total = productos * 20;
-                        Console.WriteLine($"El total a pagar es de {total}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("El precio por porducto es de $15");
-                        int total = productos * 15;
-                        Console.WriteLine($"El total a pagar es de ${total}");
-                    }
-                    play = false;
-                }
-                catch
-                {
-                    Console.WriteLine("Ingrese un valor correcto");
-                }
+                articulos();
+                Console.ReadLine();
+                
+            }
+        }
+
+        //reiniciar o finalizar programa
+        
+        static void articulos()
+        {
+            try
+            {
+                Console.WriteLine("¿Cuántos productos compró?");
+                cantidadProductos = int.Parse(Console.ReadLine());
+                descuento();
+            }
+            catch 
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al ingresar debe pone un número");
+                Console.ForegroundColor= ConsoleColor.White;
+            }
+        }
+
+        static void descuento()
+        {
+            if (cantidadProductos <= 10)
+            {
+                cantidadProductos *= 20;
+                Console.WriteLine($"Los productos salen para ${cantidadProductos}");
+            }
+            else if (cantidadProductos > 10)
+            {
+                cantidadProductos *= 15;
+                Console.WriteLine($"Los productos salen para ${cantidadProductos}");
             }
         }
     }
